@@ -14,6 +14,6 @@ Una vez que hayas instalado Node.js sigue los siguientes pasos:
 2. Navega hasta el directorio del proyecto: `cd brawl-memory`.
 3. Instala las dependencias necesarias: `npm install`.
 4. Ejecuta el comando: `npm run dev` para correr la aplicación.
-5. Abre en tu navegador el siguiente URL [http://localhost:3000](http://localhost:3000).
+5. Abre en tu navegador la siguiente URL [http://localhost:5173](http://localhost:5173).
 
 ¡Que te diviertas jugando a Brawl Memory!

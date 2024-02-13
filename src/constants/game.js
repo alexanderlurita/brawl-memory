@@ -8,7 +8,7 @@ export const BRAWLERS = {
   dynamike: 'dynamike.png',
   bo: 'bo.png',
   el_primo: 'el_primo.png',
-  barley: 'barley.png'
+  barley: 'barley.png',
 }
 
 export const STARR_DROPS_BACKGROUND = {
@@ -16,5 +16,5 @@ export const STARR_DROPS_BACKGROUND = {
   super_rare: '#0d5dd6',
   epic: '#a019e5',
   mythic: '#aa1422',
-  legendary: '#fcd512'
+  legendary: '#fcd512',
 }

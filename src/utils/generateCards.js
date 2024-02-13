@@ -1,5 +1,5 @@
 import { BRAWLERS } from '../constants/game'
-import { getRandomBackground } from '../utils'
+import { getRandomBackground } from '.'
 
 export function generateCards() {
   const elements = Object.values(BRAWLERS)
@@ -12,9 +12,9 @@ export function generateCards() {
       return {
         uid: index,
         image: el,
-        bgColor,
         isMatched: false,
-        isSelected: false
+        isSelected: false,
+        bgColor,
       }
     })
 
