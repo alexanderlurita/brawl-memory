@@ -95,8 +95,11 @@ body {
   padding: 0 20px;
 }
 
-.intents {
+.winning-modal-information {
+  display: flex;
+  flex-direction: column;
   font-style: italic;
+  gap: 10px;
 }
 
 .winning-modal-button {

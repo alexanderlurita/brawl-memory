@@ -2,6 +2,7 @@ import { useContext } from 'react'
 import { GameContext } from '../contexts/game'
 import { generateCards } from '../utils/generateCards'
 import confetti from 'canvas-confetti'
+import { useTimer } from './useTimer'
 
 export function useGameLogic() {
   const {
@@ -16,6 +17,7 @@ export function useGameLogic() {
     intents,
     setIntents,
   } = useContext(GameContext)
+  const { isRunning, toggleTimer, resetTimer } = useTimer()
 
   const updateSelectedCards = (newSelectedCards) => {
     setSelectedCards(newSelectedCards)
@@ -31,6 +33,7 @@ export function useGameLogic() {
 
       if (result) {
         setAllCardsPaired(result)
+        toggleTimer()
         confetti()
       }
     }, 1000)
@@ -47,6 +50,9 @@ export function useGameLogic() {
   }
 
   const handleCardSelection = (uid) => {
+    // Empieza el cronómetro al primer click sobre una card
+    if (!isRunning) toggleTimer()
+
     let newSelectedCards = [...selectedCards]
     let [firstCard, secondCard] = newSelectedCards
 
@@ -121,6 +127,7 @@ export function useGameLogic() {
       setSelectedCards([null, null])
       setIsComparing(false)
       setIntents(0)
+      resetTimer()
     }, 500)
   }
 
@@ -131,6 +138,7 @@ export function useGameLogic() {
     allCardsPaired,
     intents,
     handleCardSelection,
+    checkAllCardsPaired,
     resetGame,
   }
 }
