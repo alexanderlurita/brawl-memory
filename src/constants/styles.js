@@ -3,5 +3,5 @@ export const CARD_FLIP_STYLES = {
   justifyContent: 'center',
   alignItems: 'center',
   borderRadius: 10,
-  cursor: 'pointer',
+  pointerEvents: 'none',
 }

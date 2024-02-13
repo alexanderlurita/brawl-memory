@@ -1,22 +1,8 @@
 import FlipCard from 'reactjs-flip-card'
-import { useGameLogic } from '../hooks/useGameLogic'
-import { CARD_FLIP_STYLES } from '../constants/styles'
-
-function StarrDropImage() {
-  return (
-    <img className='starr-drop' src='/images/starr_drop.png' alt='StarrDrop' />
-  )
-}
-
-function BrawlerImage({ image }) {
-  return (
-    <img
-      className='brawler'
-      src={`/images/${image}`}
-      alt={`Brawler ${image.replace('.png', '')}`}
-    />
-  )
-}
+import { useGameLogic } from '../../hooks/useGameLogic'
+import { CARD_FLIP_STYLES } from '../../constants/styles'
+import StarrDropImage from './StarrDropImage'
+import BrawlerImage from './BrawlerImage'
 
 export default function BrawlerCard({
   uid,
@@ -31,9 +17,10 @@ export default function BrawlerCard({
   const flipByProp = isMatched || isSelected
 
   const cardStyles = {
-    flipCard: { width: 150 },
+    flipCard: { width: 150, cursor: 'pointer' },
     front: {
       ...CARD_FLIP_STYLES,
+
       background: `
         repeating-radial-gradient(
           circle, 
