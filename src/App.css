@@ -18,22 +18,30 @@ body {
   margin: 0;
 }
 
+/* CONTROLERS */
 .controlers {
-  display: flex;
-  justify-content: space-between;
+  display: grid;
+  grid-template-columns: repeat(3, minmax(200px, 1fr));
+  gap: 5rem;
   align-items: center;
   margin: 20px 0;
 }
 
 .controlers button {
-  max-width: 200px;
+  max-width: 150px;
+}
+
+.controlers h3 {
+  text-align: end;
 }
 
 .controlers > * {
   margin: 0;
   font-weight: 400;
+  color: #fff;
 }
 
+/* GAME BOARD */
 .game {
   display: grid;
   grid-template-columns: repeat(5, minmax(150px, 1fr));
@@ -54,6 +62,7 @@ body {
   max-height: 75%;
 }
 
+/* WINNING MODAL */
 .winning-modal {
   position: absolute;
   width: 100vw;

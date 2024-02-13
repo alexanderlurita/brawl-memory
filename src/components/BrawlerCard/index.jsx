@@ -1,8 +1,8 @@
 import FlipCard from 'reactjs-flip-card'
 import { useGameLogic } from '../../hooks/useGameLogic'
-import { CARD_FLIP_STYLES } from '../../constants/styles'
 import StarrDropImage from './StarrDropImage'
 import BrawlerImage from './BrawlerImage'
+import { getCardFlipStyles } from '../../utils'
 
 export default function BrawlerCard({
   uid,
@@ -18,18 +18,8 @@ export default function BrawlerCard({
 
   const cardStyles = {
     flipCard: { width: 150, cursor: 'pointer' },
-    front: {
-      ...CARD_FLIP_STYLES,
-
-      background: `
-        repeating-radial-gradient(
-          circle, 
-          rgba(255, 255, 255, 0.3) 20%, 
-          rgba(255, 255, 255, 0) 100%), 
-          ${bgColor}
-      `,
-    },
-    back: { ...CARD_FLIP_STYLES, background: '#FFB36D' },
+    front: getCardFlipStyles({ hexColor: bgColor }),
+    back: getCardFlipStyles({ hexColor: '#FFB36D' }),
   }
 
   return (

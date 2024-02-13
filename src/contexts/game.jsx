@@ -9,6 +9,7 @@ export function GameProvider({ children }) {
   const [isComparing, setIsComparing] = useState(false)
   const [allCardsPaired, setAllCardsPaired] = useState(false)
   const [intents, setIntents] = useState(0)
+  const [resettingGame, setResettingGame] = useState(false)
 
   return (
     <GameContext.Provider
@@ -23,6 +24,8 @@ export function GameProvider({ children }) {
         setAllCardsPaired,
         intents,
         setIntents,
+        resettingGame,
+        setResettingGame,
       }}
     >
       {children}

@@ -16,6 +16,8 @@ export function useGameLogic() {
     setAllCardsPaired,
     intents,
     setIntents,
+    resettingGame,
+    setResettingGame,
   } = useContext(GameContext)
   const { isRunning, toggleTimer, resetTimer } = useTimer()
 
@@ -108,6 +110,10 @@ export function useGameLogic() {
   const checkAllCardsPaired = (cards) => cards.every((card) => card.isMatched)
 
   const resetGame = () => {
+    if (resettingGame) return
+
+    setResettingGame(true)
+
     // Primero quitamos el modal
     setAllCardsPaired(false)
 
@@ -129,6 +135,8 @@ export function useGameLogic() {
       setIntents(0)
       resetTimer()
     }, 500)
+
+    setTimeout(() => setResettingGame(false), 3000)
   }
 
   return {
@@ -137,6 +145,7 @@ export function useGameLogic() {
     isComparing,
     allCardsPaired,
     intents,
+    resettingGame,
     handleCardSelection,
     checkAllCardsPaired,
     resetGame,
