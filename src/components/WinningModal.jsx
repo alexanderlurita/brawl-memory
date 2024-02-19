@@ -2,7 +2,7 @@ import { useGameLogic } from '../hooks/useGameLogic'
 import { useTimer } from '../hooks/useTimer'
 
 export default function WinningModal() {
-  const { allCardsPaired, intents, resetGame } = useGameLogic()
+  const { allCardsPaired, intents, resetGame, resetAll } = useGameLogic()
   const { formatTime } = useTimer()
 
   if (!allCardsPaired) return null
@@ -23,9 +23,10 @@ export default function WinningModal() {
           <span className='duration'>Duración: {formatTime()}</span>
           <span className='intents'>N° intentos: {intents}</span>
         </p>
-        <button className='winning-modal-button' onClick={resetGame}>
-          Nueva partida
-        </button>
+        <div className='winning-modal-buttons'>
+          <button onClick={resetGame}>Nueva partida</button>
+          <button onClick={resetAll}>Cambiar dificultad</button>
+        </div>
       </div>
     </div>
   )

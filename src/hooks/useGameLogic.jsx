@@ -1,11 +1,16 @@
 import { useContext } from 'react'
-import { GameContext } from '../contexts/game'
-import { generateCards } from '../utils/generateCards'
 import confetti from 'canvas-confetti'
+
+import { GameContext } from '../contexts/game'
 import { useTimer } from './useTimer'
+
+import { generateCards } from '../utils/generateCards'
+import { difficulties } from '../constants/game'
 
 export function useGameLogic() {
   const {
+    selectedDifficulty,
+    setSelectedDifficulty,
     cards,
     setCards,
     selectedCards,
@@ -109,7 +114,11 @@ export function useGameLogic() {
 
   const checkAllCardsPaired = (cards) => cards.every((card) => card.isMatched)
 
-  const resetGame = () => {
+  const handleDifficultySelection = (difficulty) => {
+    setSelectedDifficulty(difficulty)
+  }
+
+  const resetGame = ({ resetCards = true }) => {
     if (resettingGame) return
 
     setResettingGame(true)
@@ -129,7 +138,11 @@ export function useGameLogic() {
     // Tercero esperamos 500ms para volver a generar nuevas cartas
     // así evitamos que se vean mientras se ocultan
     setTimeout(() => {
-      setCards(generateCards)
+      setCards(() =>
+        resetCards
+          ? generateCards({ format: difficulties[selectedDifficulty].format })
+          : [],
+      )
       setSelectedCards([null, null])
       setIsComparing(false)
       setIntents(0)
@@ -139,7 +152,17 @@ export function useGameLogic() {
     setTimeout(() => setResettingGame(false), 3000)
   }
 
+  const resetDifficulty = () => {
+    setSelectedDifficulty(null)
+  }
+
+  const resetAll = () => {
+    resetDifficulty()
+    resetGame({ resetCards: false })
+  }
+
   return {
+    selectedDifficulty,
     cards,
     selectedCards,
     isComparing,
@@ -148,6 +171,9 @@ export function useGameLogic() {
     resettingGame,
     handleCardSelection,
     checkAllCardsPaired,
+    handleDifficultySelection,
     resetGame,
+    resetDifficulty,
+    resetAll,
   }
 }

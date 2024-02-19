@@ -1,6 +1,7 @@
-import Controlers from './components/Controlers'
+import Controllers from './components/Controllers'
 import WinningModal from './components/WinningModal'
 import ShowdownArena from './components/ShowdownArena'
+import DifficultyPicker from './components/DifficultyPicker'
 import './App.css'
 
 export default function App() {
@@ -8,9 +9,11 @@ export default function App() {
     <main className='container'>
       <h1>Brawl Memory</h1>
 
-      <Controlers />
+      <Controllers />
 
       <ShowdownArena />
+
+      <DifficultyPicker />
 
       <WinningModal />
     </main>

@@ -9,6 +9,28 @@ export const BRAWLERS = {
   bo: 'bo.png',
   el_primo: 'el_primo.png',
   barley: 'barley.png',
+  poco: 'poco.png',
+  rico: 'rico.png',
+  mortis: 'mortis.png',
+  spike: 'spike.png',
+  crow: 'crow.png',
+  piper: 'piper.png',
+  pam: 'pam.png',
+  tara: 'tara.png',
+  darryl: 'darryl.png',
+  penny: 'penny.png',
+  frank: 'frank.png',
+  leon: 'leon.png',
+  gene: 'gene.png',
+  carl: 'carl.png',
+  rosa: 'rosa.png',
+  bibi: 'bibi.png',
+  tick: 'tick.png',
+  '8-bit': '8-bit.png',
+  sandy: 'sandy.png',
+  emz: 'emz.png',
+  bea: 'bea.png',
+  max: 'max.png',
 }
 
 export const STARR_DROPS_BACKGROUND = {
@@ -17,4 +39,10 @@ export const STARR_DROPS_BACKGROUND = {
   epic: '#a019e5',
   mythic: '#aa1422',
   legendary: '#fcd512',
+}
+
+export const difficulties = {
+  easy: { name: 'Fácil', format: '4x4' },
+  medium: { name: 'Intermedio', format: '6x6' },
+  hard: { name: 'Difícil', format: '8x8' },
 }

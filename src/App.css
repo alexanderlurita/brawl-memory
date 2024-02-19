@@ -22,9 +22,9 @@ body {
 .controlers {
   display: grid;
   grid-template-columns: repeat(3, minmax(200px, 1fr));
-  gap: 5rem;
   align-items: center;
   margin: 20px 0;
+  gap: 25px;
 }
 
 .controlers button {
@@ -44,7 +44,6 @@ body {
 /* GAME BOARD */
 .game {
   display: grid;
-  grid-template-columns: repeat(5, minmax(150px, 1fr));
   gap: 1rem;
   padding: 0;
 }
@@ -62,11 +61,64 @@ body {
   max-height: 75%;
 }
 
+/* SETUP CONTAINER // LEVEL DIFFCULTY // WELCOME */
+
+.memory-setup-container > * {
+  margin: 0;
+}
+
+.memory-setup-container {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  display: grid;
+  place-items: center;
+  background-color: rgba(0, 0, 0, 0.7);
+}
+
+.memory-setup-content > *{
+  margin: 0;
+  font-weight: 400;
+}
+
+.memory-setup-content{
+  padding: 2rem;
+  background-color: #161f27;
+  border: 2px solid #eee;
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+}
+
+.memory-buttons-levels {
+  display: flex;
+  flex-direction: row;
+  gap: 10px;
+}
+
+.memory-buttons-levels > button {
+  margin: 0;
+  width: 150px;
+  border: 2px solid #eee;
+}
+
+.memory-buttons-levels > button:hover{
+  border: 2px solid #fcd512;
+}
+
+.memory-setup-image{
+  width: 150px;
+}
+
 /* WINNING MODAL */
 .winning-modal {
-  position: absolute;
-  width: 100vw;
-  height: 100vh;
+  position: fixed;
+  width: 100%;
+  height: 100%;
   top: 0;
   left: 0;
   display: grid;
@@ -111,6 +163,18 @@ body {
   gap: 10px;
 }
 
-.winning-modal-button {
+.winning-modal-buttons {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.winning-modal-buttons > button {
+  margin: 0;
   border: 2px solid #eee;
+  width: 200px;
+}
+
+.winning-modal-buttons > button:hover {
+  border: 2px solid #fcd512;
 }
